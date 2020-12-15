@@ -9,6 +9,10 @@ from django.http import JsonResponse
 import datetime
 from .utils import cookieCart, cartData, guestOrder
 import json
+from dmezapp.chatbot import chatbot
+import os
+import smtplib
+from django.core.mail import send_mail
 
 # Create your views here.
 
@@ -238,3 +242,29 @@ def login(request):
 def logout(request):
 	auth.logout(request)
 	return redirect('/')
+def bot(request):
+    return render(request,"chatbot.html")
+def get_bot_response(request):
+    query = request.GET.get('query')
+    ans=str(chatbot.get_response(query))
+    return render(request, 'chatbot.html', {'ans': ans, 'query': query})
+def customerservice(request):
+    return render(request,"contacts.html")
+def email(request):
+
+    message = request.GET.get('message')
+    name = request.GET.get('name')
+    phone = request.GET.get('phone')
+    email = request.GET.get('email')
+    recieved = "Thank you " + name + "!!\nWe have Recieved Your Query.."
+    data='from : '+name+',\nphone number : '+phone+',\nemail id : '+email+',\nMessage : '+message
+    if len(message)!=0:
+        send_mail('Query!!', data, 'dmezservice@gmail.com', ['customersupport@dmez.in'], fail_silently=False)
+        return render(request,"contacts.html",{'recieved':recieved})
+    else:
+        recieved = "No message entered!!!"
+        return render(request,"contacts.html",{'recieved':recieved})
+
+
+def wallet(request):
+    return render(request,"wallet.html")
