@@ -125,3 +125,8 @@ STATICFILES_DIRS=[
 ]
 MEDIA_URL='/image/'
 MEDIA_ROOT=os.path.join(BASE_DIR,'static/image')
+EMAIL_HOST='smtp.gmail.com'
+EMAIL_PORT='587'
+EMAIL_HOST_USER='dmezservice@gmail.com'
+EMAIL_HOST_PASSWORD='12345678ds'
+EMAIL_USE_TLS=True

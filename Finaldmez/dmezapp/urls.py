@@ -28,4 +28,9 @@ urlpatterns = [
     path('signup/',views.signup, name='signup'),
     path('login/',views.login, name='login'),
     path('logout/',views.logout, name='logout'),
+    path('bot/', views.bot, name='bot'),
+    path('get/', views.get_bot_response, name='get'),
+    path('customerservice/', views.customerservice, name='customerservice'),
+    path('mailing/', views.email, name='email'),
+    path('wallet/', views.wallet, name='wallet'),
 ]
