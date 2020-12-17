@@ -54,7 +54,7 @@ Best Selling |
                           <h6>Rs {{product.price}}</h6>
                           <p>{{product.desc|slice:"0:63"}}...</p>
                           <button data-product="{{product.id}}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
-                          <a class="btn btn-outline-success" href="/product">View</a>
+                          <a class="btn btn-outline-success" href="/products/{{product.id}}">View</a>
 
                         </div>
                       </div>
