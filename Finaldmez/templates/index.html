@@ -267,168 +267,62 @@ Welcome
 </div>
 
 
-<!-------------------------------New Products--------------------------------------->
+<!-------------------------------Covid Products--------------------------------------->
+<style>
+.title-boxc{
+	background-color: green;
+	color: #fff;
+	width: 300px;
+	padding: 4px 10px;
+	height: 40px;
+	margin-bottom: 30px;
+	display: flex;
+}
+
+.title-boxc h4{
+	font-size: 24px;
+}
+.title-boxc::after{
+	content: '';
+	border-top: 40px solid green;
+	border-right: 150px solid transparent;
+	position: absolute;
+	display: flex;
+	margin-top: -4px;
+	margin-left: 290px;
+}
+</style>
 <section class="new-products">
-	<div class="container">
-		<div class="title-box">
-			<h2>Products</h2>
-		</div>
-		<div class="row">
-			<div class="col-md-3">
-				<div class="product-top">
-					<a href="product.html"><img src="{%static 'img/med/354.jpg'%}"></a>
-					<div class="overlay-right">
-						<button type="button" class="btn btn-secondary" title="Quick Shop"><i class="fa fa-eye"></i></button>
-						<button type="button" class="btn btn-secondary" title="Add to Wishlist"><i class="fa fa-heart-o"></i></button>
-						<button type="button" class="btn btn-secondary" title="Add to Cart"><i class="fa fa-shopping-cart"></i></button>
-					</div>
+			<div class="container">
+				<div class="title-boxc">
+
+					<h4>Covid Protection Supplies</h4>
 				</div>
-				<div class="product-bottom text-center">
-					<i class="fa fa-star"></i>
-					<i class="fa fa-star"></i>
-					<i class="fa fa-star"></i>
-					<i class="fa fa-star"></i>
-					<i class="fa fa-star-half-o"></i>
-					<h3>T-Shirt</h3>
-					<h5>$40</h5>
+				<div class="container">
+				    <div class="row">
+          {% for covid in covids %}
+				        <div class="col-lg-4"><br>
+				            <img class="thumbnail" src="{{covid.imageURL}}">
+				            <div class="box-element product">
+				           <h6><strong>{{covid.name}}</strong></h6>
+				        <p>{{covid.desc|slice:"0:63"}}..</p>
+	<button data-product="{{covid.id}}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
+
+				 <a class="btn btn-outline-success" href="/covids/{{covid.id}}">View</a><br>
+<h4 style="display: inline-block; float: right"><strong>Rs.{{covid.price}}</strong></h4><h4><strike>MRP Rs.{{covid.mrp_price}}</strike></h4>
+				            </div>
+				        </div>
+				        {% endfor %}
+				    </div>
+
 				</div>
+
 			</div>
-			<div class="col-md-3">
-				<div class="product-top">
-					<a href="product.html"><img src="{%static 'img/med/360.jpg' %}"></a>
-					<div class="overlay-right">
-						<button type="button" class="btn btn-secondary" title="Quick Shop"><i class="fa fa-eye"></i></button>
-						<button type="button" class="btn btn-secondary" title="Add to Wishlist"><i class="fa fa-heart-o"></i></button>
-						<button type="button" class="btn btn-secondary" title="Add to Cart"><i class="fa fa-shopping-cart"></i></button>
-					</div>
-				</div>
-				<div class="product-bottom text-center">
-					<i class="fa fa-star"></i>
-					<i class="fa fa-star"></i>
-					<i class="fa fa-star"></i>
-					<i class="fa fa-star"></i>
-					<i class="fa fa-star-half-o"></i>
-					<h3>T-Shirt</h3>
-					<h5>$50</h5>
-				</div>
-			</div>
-			<div class="col-md-3">
-				<div class="product-top">
-					<a href="product.html"><img src="{% static 'img/med/428.jpg' %}"></a>
-					<div class="overlay-right">
-						<button type="button" class="btn btn-secondary" title="Quick Shop"><i class="fa fa-eye"></i></button>
-						<button type="button" class="btn btn-secondary" title="Add to Wishlist"><i class="fa fa-heart-o"></i></button>
-						<button type="button" class="btn btn-secondary" title="Add to Cart"><i class="fa fa-shopping-cart"></i></button>
-					</div>
-				</div>
-				<div class="product-bottom text-center">
-					<i class="fa fa-star"></i>
-					<i class="fa fa-star"></i>
-					<i class="fa fa-star"></i>
-					<i class="fa fa-star"></i>
-					<i class="fa fa-star-o"></i>
-					<h3>T-Shirt</h3>
-					<h5>$35</h5>
-				</div>
-			</div>
-			<div class="col-md-3">
-				<div class="product-top">
-					<a href="product.html"><img src="{% static 'img/med/444.jpg' %}"></a>
-					<div class="overlay-right">
-						<button type="button" class="btn btn-secondary" title="Quick Shop"><i class="fa fa-eye"></i></button>
-						<button type="button" class="btn btn-secondary" title="Add to Wishlist"><i class="fa fa-heart-o"></i></button>
-						<button type="button" class="btn btn-secondary" title="Add to Cart"><i class="fa fa-shopping-cart"></i></button>
-					</div>
-				</div>
-				<div class="product-bottom text-center">
-					<i class="fa fa-star"></i>
-					<i class="fa fa-star"></i>
-					<i class="fa fa-star"></i>
-					<i class="fa fa-star"></i>
-					<i class="fa fa-star"></i>
-					<h3>Shoes</h3>
-					<h5>$20</h5>
-				</div>
-			</div>
-			<div class="col-md-3">
-				<div class="product-top">
-					<a href="product.html"><img src="{%static 'img/med/464.jpg'%}"></a>
-					<div class="overlay-right">
-						<button type="button" class="btn btn-secondary" title="Quick Shop"><i class="fa fa-eye"></i></button>
-						<button type="button" class="btn btn-secondary" title="Add to Wishlist"><i class="fa fa-heart-o"></i></button>
-						<button type="button" class="btn btn-secondary" title="Add to Cart"><i class="fa fa-shopping-cart"></i></button>
-					</div>
-				</div>
-				<div class="product-bottom text-center">
-					<i class="fa fa-star"></i>
-					<i class="fa fa-star"></i>
-					<i class="fa fa-star"></i>
-					<i class="fa fa-star"></i>
-					<i class="fa fa-star-half-o"></i>
-					<h3>T-Shirt</h3>
-					<h5>$40</h5>
-				</div>
-			</div>
-			<div class="col-md-3">
-				<div class="product-top">
-					<a href="product.html"><img src="{%static 'img/med/484.jpg' %}"></a>
-					<div class="overlay-right">
-						<button type="button" class="btn btn-secondary" title="Quick Shop"><i class="fa fa-eye"></i></button>
-						<button type="button" class="btn btn-secondary" title="Add to Wishlist"><i class="fa fa-heart-o"></i></button>
-						<button type="button" class="btn btn-secondary" title="Add to Cart"><i class="fa fa-shopping-cart"></i></button>
-					</div>
-				</div>
-				<div class="product-bottom text-center">
-					<i class="fa fa-star"></i>
-					<i class="fa fa-star"></i>
-					<i class="fa fa-star"></i>
-					<i class="fa fa-star"></i>
-					<i class="fa fa-star-half-o"></i>
-					<h3>T-Shirt</h3>
-					<h5>$50</h5>
-				</div>
-			</div>
-			<div class="col-md-3">
-				<div class="product-top">
-					<a href="product.html"><img src="{% static 'img/med/486.jpg' %}"></a>
-					<div class="overlay-right">
-						<button type="button" class="btn btn-secondary" title="Quick Shop"><i class="fa fa-eye"></i></button>
-						<button type="button" class="btn btn-secondary" title="Add to Wishlist"><i class="fa fa-heart-o"></i></button>
-						<button type="button" class="btn btn-secondary" title="Add to Cart"><i class="fa fa-shopping-cart"></i></button>
-					</div>
-				</div>
-				<div class="product-bottom text-center">
-					<i class="fa fa-star"></i>
-					<i class="fa fa-star"></i>
-					<i class="fa fa-star"></i>
-					<i class="fa fa-star"></i>
-					<i class="fa fa-star-o"></i>
-					<h3>T-Shirt</h3>
-					<h5>$35</h5>
-				</div>
-			</div>
-			<div class="col-md-3">
-				<div class="product-top">
-					<a href="product.html"><img src="{% static 'img/med/426.jpg' %}"></a>
-					<div class="overlay-right">
-						<button type="button" class="btn btn-secondary" title="Quick Shop"><i class="fa fa-eye"></i></button>
-						<button type="button" class="btn btn-secondary" title="Add to Wishlist"><i class="fa fa-heart-o"></i></button>
-						<button type="button" class="btn btn-secondary" title="Add to Cart"><i class="fa fa-shopping-cart"></i></button>
-					</div>
-				</div>
-				<div class="product-bottom text-center">
-					<i class="fa fa-star"></i>
-					<i class="fa fa-star"></i>
-					<i class="fa fa-star"></i>
-					<i class="fa fa-star"></i>
-					<i class="fa fa-star"></i>
-					<h3>Shoes</h3>
-					<h5>$20</h5>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
+		</section>
+
+				
+			
+				
 
 <!----------------------------call to action--------------------------------------->
 <div class="call-to-action">
