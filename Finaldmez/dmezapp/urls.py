@@ -17,7 +17,7 @@ urlpatterns = [
     path('join/',views.join),
     path('upload/',views.upload),
     path('top/',views.top),
-    path('specific/',views.specific),
+    path('specific/<int:myid>',views.specific, name='Specific'),
     path('bestselling/',views.bestselling),
     path('account/',views.account),
     path('consult/',views.consult),
