@@ -3,7 +3,7 @@ from django.shortcuts import render,redirect
 #from django.contrib.auth import logout
 from django.contrib.auth.models import User,auth
 from django.contrib import messages
-from dmezapp.models import Product,Today,Best, newregis, Customer, Order, OrderItem, ShippingAddress
+from dmezapp.models import Product,Covid,Today,Best, newregis, Customer, Order, OrderItem, ShippingAddress
 from math import ceil
 from django.http import JsonResponse
 import datetime
@@ -19,8 +19,9 @@ from django.core.mail import send_mail
 def home(request):
 	products= Product.objects.all()
 	Todays= Today.objects.all()
+	covids= Covid.objects.all()
 	Bests= Best.objects.all()
-	context= {'Todays':Todays,'products':products,'Bests':Bests}
+	context= {'Todays':Todays,'products':products,'covids':covids,'Bests':Bests}
 	return render(request,'index.html',context)
 #contact us....................
 def coming(request):
@@ -167,7 +168,9 @@ def bestView(request, myid):
 
     Bests = Best.objects.filter(id=myid)
     return render(request,'best.html',  {'Bests':Bests[0]})
-
+def covid(request, myid):
+	covids = Covid.objects.filter(id=myid)
+	return render(request,'covid.html', {'covids':covids[0]})
 
 def about(request):
 	return render(request,'about.html')
