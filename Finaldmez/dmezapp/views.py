@@ -3,7 +3,7 @@ from django.shortcuts import render,redirect
 #from django.contrib.auth import logout
 from django.contrib.auth.models import User,auth
 from django.contrib import messages
-from dmezapp.models import Product,Covid,Today,Best, newregis, Customer, Order, OrderItem, ShippingAddress
+from dmezapp.models import Product,Covid,Today,Best, newregis, Customer, Order, OrderItem, ShippingAddress, Single
 from math import ceil
 from django.http import JsonResponse
 import datetime
@@ -188,12 +188,21 @@ def upload(request):
 	return render(request,'upload.html')
 
 def top(request):
-	return render(request,'top.html')
+	data = cartData(request)
 
+	cartItems = data['cartItems']
+	order = data['order']
+	items = data['items']
 
+	singles = Single.objects.all()
+	context = {'singles':singles, 'cartItems':cartItems}
+	return render(request,'top.html', context)
 
-def specific(request):
-	return render(request,'specificpage.html')
+def specific(request, myid):
+    # Fetch the product using the id
+    singles = Single.objects.filter(id=myid)
+    return render(request, 'specificpage.html', {'singles':singles[0]})
+
 
 def bestselling(request):
 	data = cartData(request)
