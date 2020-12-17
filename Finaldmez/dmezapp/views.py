@@ -22,8 +22,25 @@ def home(request):
 	Bests= Best.objects.all()
 	context= {'Todays':Todays,'products':products,'Bests':Bests}
 	return render(request,'index.html',context)
+#contact us....................
+def coming(request):
+	if request.method =="POST":
+		to = request.POST.get('email')
+		content=request.POST.get('message')
+		name=request.POST.get('name')
+		number=request.POST.get('number')
+		customer="Dear "+ name + "!!\nWe will contact you soon.."
+		dmez='This mail from:'+ name +"..\nmob number:"+ number +"\nemail id:"+ to + "\nmessage:"+ content
+		print(to,content)
+		send_mail(
+		"Hello",customer,'customersupport@dmez.in',[to])
+		send_mail(
+		"testing",dmez,settings.EMAIL_HOST_USER,['customersupport@dmez.in','anjuvigil212@gmail.com'])
+		return render(request,'index.html',{'title':'send an email'})
 
-
+	else:
+ 	   return render(request,'coming.html',{'title':'send an email'})
+#..............................
 def store(request):
 	data = cartData(request)
 
