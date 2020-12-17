@@ -101,6 +101,23 @@ class Covid(models.Model):
 		except:
 			url = ''
 		return url
+	
+class Single(models.Model):
+	category_id = models.AutoField
+	name = models.CharField(max_length=200)
+	digital = models.BooleanField(default=False,null=True, blank=True)
+	image = models.ImageField(upload_to='pics', default="")
+
+	def __str__(self):
+		return self.name
+
+	@property
+	def imageURL(self):
+		try:
+			url = self.image.url
+		except:
+			url = ''
+		return url
 
 
 
