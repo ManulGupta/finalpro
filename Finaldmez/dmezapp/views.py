@@ -213,6 +213,10 @@ def account(request):
 def consult(request):
 	return render(request,'consult.html')
 
+def tracker(request):
+	return render(request, 'tracker.html')
+
+
 
 
 ########################Account Section#############################
