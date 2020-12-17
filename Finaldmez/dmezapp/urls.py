@@ -13,6 +13,7 @@ urlpatterns = [
     path("products/<int:myid>", views.productView, name="ProductView"),
     path("Todays/<int:myid>", views.todayView, name="Todays"),
     path("Bests/<int:myid>", views.bestView, name="Bests"),
+    path("covids/<int:myid>", views.covid, name="covids"),
     path('join/',views.join),
     path('upload/',views.upload),
     path('top/',views.top),
